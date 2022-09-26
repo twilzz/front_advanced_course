@@ -7,7 +7,7 @@
     "start": "webpack serve --env port=3000",
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "unit": "jest --config ./config/jest/jest.config.ts"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
