@@ -1,9 +1,21 @@
-import React from 'react'
+import { Counter } from 'entities/Counter'
+import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 const MainPage = () => {
   const { t } = useTranslation()
-  return <div>{t('Главная страница')}</div>
+  const [value, setValue] = useState('')
+
+  const onChange = (val: string) => {
+    setValue(val)
+  }
+
+  return (
+    <div>
+      {t('Главная страница')}
+      <Counter />
+    </div>
+  )
 }
 
 export default MainPage

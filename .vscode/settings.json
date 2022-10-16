@@ -1,4 +1,16 @@
 {
   "npm-scripts.showStartNotification": false,
-  "git.ignoreLimitWarning": true
+  "git.ignoreLimitWarning": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "build": true,
+    ".vscode": true,
+    "node_modules": true
+  },
+  "hide-files.files": ["build", ".vscode", "node_modules"]
 }
