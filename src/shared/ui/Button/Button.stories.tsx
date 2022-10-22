@@ -92,5 +92,5 @@ export const Disabled = Template.bind({})
 Disabled.args = {
   children: '>',
   theme: ButtonTheme.OUTLINE,
-  disables: true,
+  disabled: true,
 }

@@ -1,4 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit'
 import { render } from '@testing-library/react'
 import {
   createReduxStore,
@@ -22,10 +21,10 @@ export function componentRender(
   const { route = '/', initialState } = options
   const store = createReduxStore(initialState as StateSchema)
   return render(
-    <StoreProvider initialState={initialState}>
-      <MemoryRouter initialEntries={[route]}>
+    <MemoryRouter initialEntries={[route]}>
+      <StoreProvider initialState={initialState}>
         <I18nextProvider i18n={i18nForTests}>{component}</I18nextProvider>
-      </MemoryRouter>
-    </StoreProvider>
+      </StoreProvider>
+    </MemoryRouter>
   )
 }

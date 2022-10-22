@@ -10,7 +10,8 @@
     "**/Thumbs.db": true,
     "build": true,
     ".vscode": true,
-    "node_modules": true
+    "node_modules": true,
+    "scripts": true
   },
-  "hide-files.files": ["build", ".vscode", "node_modules"]
+  "hide-files.files": ["build", ".vscode", "node_modules", "scripts"]
 }
