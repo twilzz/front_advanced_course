@@ -1,7 +1,8 @@
-@import 'reset';
-@import 'variables/globals';
-@import 'themes/dark';
-@import 'themes/normal';
+@import 'reset.scss';
+@import 'variables/globals.scss';
+@import 'themes/dark.scss';
+@import 'themes/normal.scss';
+@import 'themes/black.scss';
 
 .app .app_modal {
   font: var(--font-m);

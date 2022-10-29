@@ -1,12 +1,14 @@
 import webpack from 'webpack'
-import { BuildProps } from './types/config'
+import { buildBabelLoader } from './loaders/buildBabelLoader'
 import { buildCssLoader } from './loaders/buildCssLoaders'
+import { BuildProps } from './types/config'
 
 export function buildLoaders(options: BuildProps): webpack.RuleSetRule[] {
   const svgLoader = {
     test: /\.svg$/,
     use: ['@svgr/webpack'],
   }
+  const babelLoader = buildBabelLoader(options)
   const fileLoader = {
     test: /\.(png|jpe?g|gif)$/i,
     use: [

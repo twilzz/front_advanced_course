@@ -1,26 +1,25 @@
-import { getLoginState } from 'entities/User/model/selector/getLoginState/getLoginState'
 import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername'
 import {
   loginActions,
   loginReducer,
 } from 'features/AuthByUsername/model/slice/loginSlice'
 import { t } from 'i18next'
-import { memo, useCallback, useEffect, useState } from 'react'
-import { useDispatch, useSelector, useStore } from 'react-redux'
+import { memo, useCallback } from 'react'
+import { useSelector } from 'react-redux'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { Text, TextTheme } from 'shared/ui/Text/Text'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button'
-import { Input } from 'shared/ui/Input/Input'
-import cls from './LoginForm.module.scss'
-import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername'
-import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword'
-import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading'
-import { getLoginError } from '../../model/selectors/getLoginError/getLoginError'
 import {
   DynamicModuleLoader,
   ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
+import { Button, ButtonTheme } from 'shared/ui/Button/Button'
+import { Input } from 'shared/ui/Input/Input'
+import { Text, TextTheme } from 'shared/ui/Text/Text'
+import { getLoginError } from '../../model/selectors/getLoginError/getLoginError'
+import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading'
+import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword'
+import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername'
+import cls from './LoginForm.module.scss'
 
 export interface LoginFormProps {
   className?: string

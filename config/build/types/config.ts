@@ -11,6 +11,7 @@ export interface BuildProps {
   isDev: boolean
   port: number
   apiUrl: string
+  project: 'storybook' | 'frontend' | 'jest'
 }
 export interface BuildEnv {
   mode: BuildMode

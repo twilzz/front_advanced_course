@@ -1,7 +1,7 @@
-import { BuildPaths } from '../build/types/config'
-import webpack, { DefinePlugin, RuleSetRule } from 'webpack'
 import path from 'path'
+import webpack, { DefinePlugin, RuleSetRule } from 'webpack'
 import { buildCssLoader } from '../build/loaders/buildCssLoaders'
+import { BuildPaths } from '../build/types/config'
 
 export default ({ config }: { config: webpack.Configuration }) => {
   const paths: BuildPaths = {
@@ -29,6 +29,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     new DefinePlugin({
       __IS_DEV__: true,
       __API__: JSON.stringify(''),
+      __PROJECT__: JSON.stringify('storybook'),
     })
   )
   return config

@@ -1,14 +1,11 @@
-import { memo, Suspense, useState } from 'react'
-import { RoutePaths } from 'shared/config/routeConfig/routeConfig'
+import { memo, Suspense, useMemo, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
 import { LangSwitcher } from 'widgets/LangSwitcher'
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
-import cls from './Sidebar.module.scss'
-
 import { SidebarItemsList } from 'widgets/Sidebar/model/items'
+import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 import { SidebarItem } from '../SidebarItem/SidebarItem'
+import cls from './Sidebar.module.scss'
 
 interface SidebarProps {
   className?: string
@@ -16,10 +13,18 @@ interface SidebarProps {
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false)
+
   const onToggle = () => {
     setCollapsed(!collapsed)
   }
 
+  const itemList = useMemo(
+    () =>
+      SidebarItemsList.map((item) => (
+        <SidebarItem item={item} collapsed={collapsed} key={item.path} />
+      )),
+    [collapsed]
+  )
   return (
     <div
       data-testid="sidebar"
@@ -37,11 +42,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
       >
         {collapsed ? '>' : '<'}
       </Button>
-      <div className={cls.items}>
-        {SidebarItemsList.map((item) => (
-          <SidebarItem collapsed={collapsed} item={item} key={item.text} />
-        ))}
-      </div>
+      <div className={cls.items}>{itemList}</div>
       <div className={cls.switchers}>
         <Suspense fallback={''}>
           <ThemeSwitcher />
