@@ -11,7 +11,7 @@ export enum AppRoutes {
   NOT_FOUND = 'not_found',
 }
 
-type AppRouteProps = RouteProps & {
+export type AppRouteProps = RouteProps & {
   authOnly?: boolean
 }
 

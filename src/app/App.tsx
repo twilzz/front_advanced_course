@@ -1,15 +1,16 @@
-import { useTheme } from './providers/ThemeProvider/lib/useTheme'
-import { classNames } from '../shared/lib/classNames/classNames'
-import { AppRouter } from './providers/Router'
+import { getUserAuthorized, userActions } from 'entities/User'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
-import { useDispatch } from 'react-redux'
-import { useEffect } from 'react'
-import { userActions } from 'entities/User'
+import { classNames } from '../shared/lib/classNames/classNames'
+import { AppRouter } from './providers/Router'
+import { useTheme } from './providers/ThemeProvider/lib/useTheme'
 
 function App() {
   const { theme } = useTheme()
   const dispatch = useDispatch()
+  const authorized = useSelector(getUserAuthorized)
 
   useEffect(() => {
     dispatch(userActions.initAuthData())
@@ -20,7 +21,7 @@ function App() {
       <Navbar />
       <div className="content-page">
         <Sidebar />
-        <AppRouter />
+        {authorized && <AppRouter />}
       </div>
     </div>
   )
