@@ -1,0 +1,1 @@
+export {ArticleDetailedPageLazy as ArticleDetailedPage} from './ui/ArticleDetailedPage/ArticleDetailedPageLazy'

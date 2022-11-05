@@ -1,6 +1,6 @@
 import webpack from 'webpack'
 import { buildBabelLoader } from './loaders/buildBabelLoader'
-import { buildCssLoader } from './loaders/buildCssLoaders'
+import { buildCssLoader } from './loaders/buildCssLoader'
 import { BuildProps } from './types/config'
 
 export function buildLoaders(options: BuildProps): webpack.RuleSetRule[] {
