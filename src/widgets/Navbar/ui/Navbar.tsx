@@ -1,7 +1,7 @@
 import { getUserAuthData, userActions } from 'entities/User'
 import { LoginModal } from 'features/AuthByUsername'
 import { t } from 'i18next'
-import React, { memo, useCallback, useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
@@ -30,7 +30,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   if (authData) {
     return (
-      <div className={classNames(cls.navbar, {}, [className])}>
+      <header className={classNames(cls.navbar, {}, [className])}>
         <Button
           onClick={onShowModal}
           theme={ButtonTheme.CLEAR_INVERTED}
@@ -39,12 +39,12 @@ export const Navbar = memo(({ className }: NavbarProps) => {
           {t('Выйти')}
         </Button>
         <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
-      </div>
+      </header>
     )
   }
 
   return (
-    <div className={classNames(cls.navbar, {}, [className])}>
+    <header className={classNames(cls.navbar, {}, [className])}>
       <Button
         onClick={onShowModal}
         theme={ButtonTheme.CLEAR_INVERTED}
@@ -55,6 +55,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
       {isAuthModal && (
         <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
       )}
-    </div>
+    </header>
   )
 })

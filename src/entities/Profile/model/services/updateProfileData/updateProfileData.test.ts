@@ -17,6 +17,7 @@ const data = {
   lastname: 'Nevagno',
   currency: Currency.RUB,
   city: 'Spb',
+  id: '1',
 }
 
 describe('validateProfileData', () => {
