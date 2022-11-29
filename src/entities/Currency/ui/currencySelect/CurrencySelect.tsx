@@ -1,9 +1,8 @@
-import { useCallback } from '@storybook/addons'
 import { Currency } from 'entities/Currency'
-import { memo } from 'react'
+import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { Select } from 'shared/ui/Select/Select'
+import Listbox from 'shared/ui/ListBox/ListBox'
 
 interface currencySelectProps {
   className?: string
@@ -27,13 +26,14 @@ export const CurrencySelect = memo(
     }, [])
 
     return (
-      <Select
+      <Listbox
         className={classNames('', {}, [className])}
-        label={t('Укажите валюту')}
-        options={options}
-        value={value}
         onChange={onChangeHandler}
-        readOnly={readOnly}
+        defaultValue={'Укажите валюту'}
+        label={'Укажите валюту'}
+        value={value}
+        items={options}
+        direction="top right"
       />
     )
   }

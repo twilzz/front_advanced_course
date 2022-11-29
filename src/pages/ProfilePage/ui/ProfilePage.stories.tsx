@@ -7,7 +7,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import ProfilePage from './ProfilePage'
 
 export default {
-  title: 'pages/MainPage',
+  title: 'pages/ProfilePage',
   component: ProfilePage,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -27,7 +27,6 @@ Normal.decorators = [
         username: 'admin',
         age: 24,
         country: Country.Armenia,
-        name: 'Alexey',
         lastname: 'Nevagno',
         currency: Currency.RUB,
         city: 'Spb',
@@ -38,4 +37,18 @@ Normal.decorators = [
 
 export const Dark = Template.bind({})
 Dark.args = {}
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]
+Dark.decorators = [
+  ThemeDecorator(Theme.DARK),
+  StoreDecorator({
+    profile: {
+      form: {
+        username: 'admin',
+        age: 24,
+        country: Country.Armenia,
+        lastname: 'Nevagno',
+        currency: Currency.RUB,
+        city: 'Spb',
+      },
+    },
+  }),
+]
