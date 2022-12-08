@@ -1,8 +1,8 @@
 import { getArticleDetailsData } from 'entities/Article/model/selectors/articleDetails'
 import { getUserAuthData } from 'entities/User'
-import { t } from 'i18next'
 import { getCanEditArticle } from 'pages/ArticleDetailedPage/model/selectors/article'
 import { memo, useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { RoutePaths } from 'shared/config/routeConfig/routeConfig'
@@ -16,6 +16,7 @@ interface ArticleDetailsPageHeaderProps {
 
 export const ArticleDetailsPageHeader = memo(
   ({ className }: ArticleDetailsPageHeaderProps) => {
+    const { t } = useTranslation()
     const navigate = useNavigate()
     const userData = useSelector(getUserAuthData)
     const article = useSelector(getArticleDetailsData)

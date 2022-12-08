@@ -1,10 +1,11 @@
+import { ArticleView } from 'entities/Article/model/const/article'
 import { memo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useHover } from 'shared/lib/hooks/useHover'
 import { Card } from 'shared/ui/Card/Card'
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
-import { ArticleView } from '../../model/types/article'
+
 import cls from './ArticleListItem.module.scss'
 
 interface ArticleListItemSkeletonProps {

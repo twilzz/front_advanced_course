@@ -1,4 +1,4 @@
-import { memo, Suspense, useMemo, useState } from 'react'
+import { memo, Suspense, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
@@ -21,13 +21,10 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     setCollapsed(!collapsed)
   }
 
-  const itemList = useMemo(
-    () =>
-      sidebarItemsList.map((item) => (
-        <SidebarItem item={item} collapsed={collapsed} key={item.path} />
-      )),
-    [collapsed]
-  )
+  const itemList = sidebarItemsList.map((item) => (
+    <SidebarItem item={item} collapsed={collapsed} key={item.path} />
+  ))
+
   return (
     <aside
       data-testid="sidebar"

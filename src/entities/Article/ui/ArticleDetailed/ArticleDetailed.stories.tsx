@@ -1,10 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import 'app/styles/index.scss'
 import {
-  Article,
   ArticleBlockType,
   ArticleType,
-} from 'entities/Article/model/types/article'
+} from 'entities/Article/model/const/article'
+import { Article } from 'entities/Article/model/types/article'
+
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ArticleDetailed } from './ArticleDetailed'
 

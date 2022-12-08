@@ -1,7 +1,12 @@
-import { getUserAuthData, userActions } from 'entities/User'
+import {
+  getUserAuthData,
+  isUserAdmin,
+  isUserManager,
+  userActions,
+} from 'entities/User'
 import { LoginModal } from 'features/AuthByUsername'
-import { t } from 'i18next'
 import { memo, useCallback, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { RoutePaths } from 'shared/config/routeConfig/routeConfig'
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -17,9 +22,12 @@ interface NavbarProps {
 }
 
 export const Navbar = memo(({ className }: NavbarProps) => {
+  const { t } = useTranslation()
   const [isAuthModal, setIsAuthModal] = useState(false)
   const authData = useSelector(getUserAuthData)
   const dispatch = useDispatch()
+  const isAdmin = useSelector(isUserAdmin)
+  const isManager = useSelector(isUserManager)
 
   const onCloseModal = useCallback(() => {
     setIsAuthModal(false)
@@ -33,10 +41,12 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     dispatch(userActions.logout())
   }, [dispatch])
 
+  const isAdminPanelVisible = isAdmin || isManager
+
   //для авторизованного
   if (authData) {
     return (
-      <header className={classNames(cls.navbar, {}, [className])}>
+      <header className={classNames(cls.Navbar, {}, [className])}>
         <Text
           theme={TextTheme.INVERTED}
           className={cls.appName}
@@ -51,17 +61,24 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         </AppLink>
         <Dropdown
           direction="bottom left"
+          className={cls.dropdown}
           items={[
-            { content: t('Выйти'), onClick: onLogout },
+            ...(isAdminPanelVisible
+              ? [
+                  {
+                    content: t('Админка'),
+                    href: RoutePaths.admin_panel,
+                  },
+                ]
+              : []),
             {
               content: t('Профиль'),
               href: RoutePaths.profile + authData.id,
             },
+            { content: t('Выйти'), onClick: onLogout },
           ]}
           trigger={<Avatar size={30} src={authData.avatar} />}
         />
-
-        <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
       </header>
     )
   }

@@ -1,6 +1,6 @@
 import { Country, CountrySelect } from 'entities/Country'
 import { Currency, CurrencySelect } from 'entities/Currency'
-import { Profile } from 'entities/Profile/model/types/profile'
+import { Profile } from 'features/EditableProfileCard/model/types/editableProfileCardSchema'
 import { useTranslation } from 'react-i18next'
 
 import { classNames, Mods } from 'shared/lib/classNames/classNames'
@@ -97,6 +97,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         placeholder={t('Ваше имя')}
         onChange={onChangeFirstName}
         readOnly={readOnly}
+        data-testid={'ProfileCard.name'}
       />
       <Input
         className={cls.input}
@@ -104,6 +105,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         placeholder={t('Ваше фамилия')}
         onChange={onChangeLastName}
         readOnly={readOnly}
+        data-testid={'ProfileCard.lastname'}
       />
       <Input
         className={cls.input}

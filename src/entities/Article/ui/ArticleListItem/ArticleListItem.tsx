@@ -1,5 +1,9 @@
-import { t } from 'i18next'
+import {
+  ArticleBlockType,
+  ArticleView,
+} from 'entities/Article/model/const/article'
 import { HTMLAttributeAnchorTarget, memo } from 'react'
+import { useTranslation } from 'react-i18next'
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
 import { RoutePaths } from 'shared/config/routeConfig/routeConfig'
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -10,12 +14,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Card } from 'shared/ui/Card/Card'
 import { Icon } from 'shared/ui/Icon/Icon'
 import { Text } from 'shared/ui/Text/Text'
-import {
-  Article,
-  ArticleBlockType,
-  ArticleTextBlock,
-  ArticleView,
-} from '../../model/types/article'
+import { Article, ArticleTextBlock } from '../../model/types/article'
 import { ArticleTextBlockComponent } from '../ArticleTextBlock/ArticleTextBlock'
 import cls from './ArticleListItem.module.scss'
 
@@ -29,7 +28,7 @@ interface ArticleListItemProps {
 export const ArticleListItem = memo(
   ({ className, article, view, target }: ArticleListItemProps) => {
     const [isHovered, bindHover] = useHover()
-
+    const { t } = useTranslation()
     const types = <Text text={article.type.join(', ')} className={cls.types} />
     const views = (
       <>

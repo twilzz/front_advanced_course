@@ -579,19 +579,19 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": ["ADMIN"]
     },
     {
       "id": "2",
       "username": "twils",
       "password": "123",
-      "role": "USER"
+      "role": ["USER"]
     },
     {
       "id": "3",
       "username": "sweetty",
       "password": "123",
-      "role": "USER"
+      "role": ["USER", "MANAGER"]
     }
   ],
   "profile": [

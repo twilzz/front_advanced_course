@@ -1,5 +1,5 @@
-import { getUserAuthorized, userActions } from 'entities/User'
-import { useEffect } from 'react'
+import { getUserInited, userActions } from 'entities/User'
+import { Suspense, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
@@ -10,7 +10,9 @@ import { useTheme } from './providers/ThemeProvider/lib/useTheme'
 function App() {
   const { theme } = useTheme()
   const dispatch = useDispatch()
-  const authorized = useSelector(getUserAuthorized)
+  let inited = useSelector(getUserInited)
+
+  console.log('authorized', inited)
 
   useEffect(() => {
     dispatch(userActions.initAuthData())
@@ -18,11 +20,13 @@ function App() {
 
   return (
     <div className={classNames('app', {}, [theme])}>
-      <Navbar />
-      <div className="content-page">
-        <Sidebar />
-        {authorized && <AppRouter />}
-      </div>
+      <Suspense fallback="">
+        <Navbar />
+        <div className="content-page">
+          <Sidebar />
+          {inited && <AppRouter />}
+        </div>
+      </Suspense>
     </div>
   )
 }

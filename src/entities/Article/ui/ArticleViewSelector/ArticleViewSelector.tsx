@@ -1,4 +1,4 @@
-import { ArticleView } from 'entities/Article/model/types/article'
+import { ArticleView } from 'entities/Article/model/const/article'
 import { memo } from 'react'
 import ListIcon from 'shared/assets/icons/bi_list.svg'
 import TileIcon from 'shared/assets/icons/fe_tiled.svg'

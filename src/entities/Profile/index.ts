@@ -1,11 +1,11 @@
-export { getProfileData } from './model/selectors/getProfileData/getProfileData'
-export { getProfileError } from './model/selectors/getProfileError/getProfileError'
-export { getProfileForm } from './model/selectors/getProfileForm/getProfileForm'
-export { getProfileIsLoading } from './model/selectors/getProfileIsLoading/getProfileIsLoading'
-export { getProfileReadonly } from './model/selectors/getProfileReadonly/getProfileReadonly'
-export { getProfileValidateErrors } from './model/selectors/getProfileValidateErrors/getProfileValidateErrors'
-export { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData'
-export { updateProfileData } from './model/services/updateProfileData/updateProfileData'
-export { profileActions, profileReducer } from './model/slice/profileSlice'
-export { Profile, ProfileSchema } from './model/types/profile'
+export { getProfileData } from '../../features/EditableProfileCard/model/selectors/getProfileData/getProfileData'
+export { getProfileError } from '../../features/EditableProfileCard/model/selectors/getProfileError/getProfileError'
+export { getProfileForm } from '../../features/EditableProfileCard/model/selectors/getProfileForm/getProfileForm'
+export { getProfileIsLoading } from '../../features/EditableProfileCard/model/selectors/getProfileIsLoading/getProfileIsLoading'
+export { getProfileReadonly } from '../../features/EditableProfileCard/model/selectors/getProfileReadonly/getProfileReadonly'
+export { getProfileValidateErrors } from '../../features/EditableProfileCard/model/selectors/getProfileValidateErrors/getProfileValidateErrors'
+export type {
+  Profile,
+  ProfileSchema,
+} from '../../features/EditableProfileCard/model/types/editableProfileCardSchema'
 export { ProfileCard } from './ui/ProfileCard/ProfileCard'

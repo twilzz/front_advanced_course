@@ -38,6 +38,8 @@ export function Dropdown({
       <Menu.Button className={cls.button}>{trigger}</Menu.Button>
       <Menu.Items className={classNames(cls.menu, {}, menuClasses)}>
         {items.map((item) => {
+          console.log(item)
+
           const content = ({ active }: { active: boolean }) => (
             <button
               type="button"
@@ -50,9 +52,9 @@ export function Dropdown({
           )
           {
             item.href && (
-              <Menu.Item as={AppLink} to={item.href} disabled={item.disabled}>
-                {content}
-              </Menu.Item>
+              <AppLink to={item.href}>
+                <Menu.Item>{content}</Menu.Item>
+              </AppLink>
             )
           }
           return (

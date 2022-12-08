@@ -8,7 +8,9 @@ export function buildLoaders(options: BuildProps): webpack.RuleSetRule[] {
     test: /\.svg$/,
     use: ['@svgr/webpack'],
   }
-  const babelLoader = buildBabelLoader(options)
+  const codeBabelLoader = buildBabelLoader(options, false)
+  const tsxCodeBabelLoader = buildBabelLoader(options, true)
+
   const fileLoader = {
     test: /\.(png|jpe?g|gif)$/i,
     use: [
@@ -24,5 +26,5 @@ export function buildLoaders(options: BuildProps): webpack.RuleSetRule[] {
   }
   const cssLoader = buildCssLoader(true)
 
-  return [svgLoader, fileLoader, typescriptLoader, cssLoader]
+  return [svgLoader, fileLoader, codeBabelLoader, tsxCodeBabelLoader, cssLoader]
 }

@@ -1,4 +1,4 @@
-import { ArticleType } from 'entities/Article/model/types/article'
+import { ArticleType } from 'entities/Article/model/const/article'
 import { memo, useCallback, useMemo } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs'

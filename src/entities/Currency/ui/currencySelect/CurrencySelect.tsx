@@ -1,4 +1,4 @@
-import { Currency } from 'entities/Currency'
+import { Currency } from 'entities/Currency/model/types/currency'
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -34,6 +34,7 @@ export const CurrencySelect = memo(
         value={value}
         items={options}
         direction="top right"
+        readOnly={readOnly}
       />
     )
   }

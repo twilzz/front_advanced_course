@@ -1,13 +1,11 @@
+import { ArticleBlockType } from 'entities/Article/model/const/article'
 import {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from 'entities/Article/model/selectors/articleDetails'
 import { fetchArticleByID } from 'entities/Article/model/services/fetchArticleByID/fetchArticleByID'
-import {
-  ArticleBlock,
-  ArticleBlockType,
-} from 'entities/Article/model/types/article'
+import { ArticleBlock } from 'entities/Article/model/types/article'
 import { memo, useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
@@ -145,6 +143,7 @@ export const ArticleDetailed = memo(
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
         <VStack
           gap="16"
+          max
           className={classNames(cls.ArticleDetailed, {}, [className])}
         >
           {content}

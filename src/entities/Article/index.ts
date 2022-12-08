@@ -1,6 +1,10 @@
-export { ArticleSortField, ArticleView } from './model/types/article'
+export {
+  ArticleSortField,
+  ArticleType,
+  ArticleView,
+} from './model/const/article'
 export type { Article } from './model/types/article'
-export { ArticleDetailsSchema } from './model/types/ArticleDetailsSchema'
+export type { ArticleDetailsSchema } from './model/types/ArticleDetailsSchema'
 export { ArticleDetailed } from './ui/ArticleDetailed/ArticleDetailed'
 export { ArticleList } from './ui/ArticleList/ArticleList'
 export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector'
